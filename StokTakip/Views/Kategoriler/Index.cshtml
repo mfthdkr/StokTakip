@@ -1,0 +1,31 @@
+﻿@using StokTakip.Models.EntityFramework
+@model List<Kategoriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Kategori Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kategori Id</th>
+        <th>Kategori Adı</th>
+
+    </tr>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.KategoriId</td>
+            <td>@item.KategoriAd</td>
+            <td>
+                <a href="/Kategoriler/Delete/@item.KategoriId" class=" btn btn-danger">Sil</a>
+                <a href="/Kategoriler/Update/@item.KategoriId" class=" btn btn-success">Güncelle</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<a href="/Kategoriler/Create" class="btn btn-primary">Yeni Kategori Ekle</a>
+

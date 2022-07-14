@@ -1,0 +1,33 @@
+﻿@model StokTakip.Models.EntityFramework.Urunler
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Yeni Ürün Ekleme Sayfası</h2>
+
+<form class="form-group" method="post">
+    <div>
+        <label>Ürün Adı</label>
+        <input type="text" class="form-control" name="UrunAd" />
+    </div>
+    <div>
+        <label>Marka</label>
+        <input type="text" class="form-control" name="Marka" />
+    </div>
+    <div>
+        <label>Kategori seçiniz</label>
+        @Html.DropDownListFor(p=>p.Kategoriler.KategoriId,(List<SelectListItem>)ViewBag.kategoriler,new {@class="form-control"});
+    </div>
+    <div>
+        <label>Fiyat</label>
+        <input type="text" class="form-control" name="Fiyat" />
+    </div>
+    <div>
+        <label>Stok</label>
+        <input type="text" class="form-control" name="Stok" />
+    </div>
+    <div style="margin-top: 15px">
+        <button class="btn btn-info">Ekle</button>
+    </div>
+</form>

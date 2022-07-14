@@ -1,0 +1,41 @@
+﻿@using StokTakip.Models.EntityFramework
+@model List<Urunler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Ürün Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Id</th>
+        <th>Ürün Adı</th>
+        <th>Kategori</th>
+        <th>Markası</th>
+        <th>Fiyat</th>
+        <th>Stok</th>
+
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UrunId</td>
+                <td>@item.UrunAd</td>
+                <td>@item.Kategoriler.KategoriAd</td>
+                <td>@item.Marka</td>
+                <td>@item.Fiyat</td>
+                <td>@item.Stok</td>
+                <td>
+                    <a href="/Urunler/Delete/@item.UrunId" class=" btn btn-danger">Sil</a>
+                    <a href="/Urunler/Update/@item.UrunId" class=" btn btn-success">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Urunler/Create" class="btn btn-primary">Yeni Ürün Ekle</a>
+
+

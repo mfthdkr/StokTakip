@@ -1,0 +1,33 @@
+﻿
+@model List<StokTakip.Models.EntityFramework.Musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Müşteri Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Müşteri Id</th>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Soyadı</th>
+
+
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MusteriId</td>
+                <td>@item.MusteriAd</td>
+                <td>@item.MusteriSoyad</td>
+                <td>
+                    <a href="/Musteriler/Delete/@item.MusteriId" class=" btn btn-danger">Sil</a>
+                    <a href="/Musteriler/Update/@item.MusteriId" class=" btn btn-success">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Musteriler/Create" class="btn btn-primary">Yeni Müşteri Ekle</a>
