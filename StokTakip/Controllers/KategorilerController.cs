@@ -40,5 +40,23 @@ namespace StokTakip.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Update(int categoryId)
+        {
+            var categoryToUpdate = dbStokTakipEntities.Kategoriler.Find(categoryId);
+
+            return View(categoryToUpdate);
+        }
+
+        [HttpPost]
+        public ActionResult Update(Kategoriler category)
+        {
+            var categoryToUpdate =
+                dbStokTakipEntities.Kategoriler.Find(category.KategoriId);
+            categoryToUpdate.KategoriAd = category.KategoriAd;
+            dbStokTakipEntities.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

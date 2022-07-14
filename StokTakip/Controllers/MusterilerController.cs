@@ -29,5 +29,15 @@ namespace StokTakip.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int CustomerId)
+        {
+            
+            var customerToDelete = dbStokTakipEntities.Musteriler.Find(CustomerId);
+            dbStokTakipEntities.Musteriler.Remove(customerToDelete);
+            dbStokTakipEntities.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

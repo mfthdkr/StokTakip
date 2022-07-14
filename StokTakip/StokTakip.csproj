@@ -227,6 +227,7 @@
     <Content Include="Views\Kategoriler\Create.cshtml" />
     <Content Include="Views\Musteriler\Create.cshtml" />
     <Content Include="Views\Urunler\Create.cshtml" />
+    <Content Include="Views\Kategoriler\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

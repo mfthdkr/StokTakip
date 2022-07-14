@@ -1,0 +1,25 @@
+﻿@using StokTakip.Models.EntityFramework
+@model Kategoriler
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Update Page</h2>
+
+
+@using (Html.BeginForm("Update", "Kategoriler", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(p=>p.KategoriId,"Kategori Id :")
+        @Html.TextBoxFor(p=>p.KategoriId,new {@class="form-control"})
+
+        <br/>
+
+        @Html.LabelFor(p=>p.KategoriAd,"Kategori Adı: ")
+        @Html.TextBoxFor(p => p.KategoriAd, new { @class = "form-control" })
+    </div>
+    <div >
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}

@@ -23,7 +23,7 @@
                 <td>@item.MusteriAd</td>
                 <td>@item.MusteriSoyad</td>
                 <td>
-                    <a href="/Musteriler/Delete/@item.MusteriId" class=" btn btn-danger">Sil</a>
+                    <a href="@Url.Action("Delete","Musteriler",new {customerId =@item.MusteriId})" class=" btn btn-danger">Sil</a>
                     <a href="/Musteriler/Update/@item.MusteriId" class=" btn btn-success">Güncelle</a>
                 </td>
             </tr>
