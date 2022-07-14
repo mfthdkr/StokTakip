@@ -29,7 +29,7 @@
                 <td>@item.Fiyat</td>
                 <td>@item.Stok</td>
                 <td>
-                    <a href="/Urunler/Delete/@item.UrunId" class=" btn btn-danger">Sil</a>
+                    <a href="@Url.Action("Delete", "Urunler", new {productId=@item.UrunId})" class=" btn btn-danger">Sil</a>
                     <a href="/Urunler/Update/@item.UrunId" class=" btn btn-success">Güncelle</a>
                 </td>
             </tr>

@@ -58,5 +58,14 @@ namespace StokTakip.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int productId)
+        {
+            var productToDelete = dbStokTakipEntities.Urunler.Find(productId);
+            dbStokTakipEntities.Urunler.Remove(productToDelete);
+            dbStokTakipEntities.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

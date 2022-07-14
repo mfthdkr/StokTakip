@@ -32,6 +32,13 @@ namespace StokTakip.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        public ActionResult Delete(int categoryId)
+        {
+            var categoryToDelete = dbStokTakipEntities.Kategoriler.Find(categoryId);
+            dbStokTakipEntities.Kategoriler.Remove(categoryToDelete);
+            dbStokTakipEntities.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

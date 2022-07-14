@@ -20,7 +20,7 @@
             <td>@item.KategoriId</td>
             <td>@item.KategoriAd</td>
             <td>
-                <a href="/Kategoriler/Delete/@item.KategoriId" class=" btn btn-danger">Sil</a>
+                <a href="@Url.Action("Delete", "Kategoriler", new {categoryId= @item.KategoriId})" class=" btn btn-danger">Sil</a>
                 <a href="/Kategoriler/Update/@item.KategoriId" class=" btn btn-success">Güncelle</a>
             </td>
         </tr>
