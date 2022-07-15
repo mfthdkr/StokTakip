@@ -1,4 +1,4 @@
-﻿
+﻿@model StokTakip.Models.EntityFramework.Kategoriler
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -7,9 +7,14 @@
 <h2>Yeni Kategori Sayfası</h2>
 
 <form  class="form-group" method="post">
-    <div>
+    @*<div>
         <label>Kategori Adı</label>
         <input type="text" class="form-control" name="KategoriAd"/>
+    </div>*@
+    <div>
+        @Html.LabelFor(p=>p.KategoriAd,"Kategori Ad")
+        @Html.TextBoxFor(p=>p.KategoriAd,new {@class="form-control"})
+        @Html.ValidationMessageFor(p=>p.KategoriAd,"",new{@class="text-danger"})
     </div>
     <div style="margin-top: 15px">
         <button class="btn btn-info">Ekle</button>

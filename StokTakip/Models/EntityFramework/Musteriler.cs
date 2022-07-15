@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace StokTakip.Models.EntityFramework
 {
     using System;
@@ -21,6 +23,8 @@ namespace StokTakip.Models.EntityFramework
         }
     
         public int MusteriId { get; set; }
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [StringLength(50,ErrorMessage = "En fazla 50 karakter girebilirsiniz.")]
         public string MusteriAd { get; set; }
         public string MusteriSoyad { get; set; }
     

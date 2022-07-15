@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace StokTakip.Models.EntityFramework
 {
     using System;
@@ -21,6 +23,8 @@ namespace StokTakip.Models.EntityFramework
         }
     
         public int KategoriId { get; set; }
+
+        [Required(ErrorMessage = "Kategori adý zorunludur.")]
         public string KategoriAd { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

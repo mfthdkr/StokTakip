@@ -27,6 +27,10 @@ namespace StokTakip.Controllers
         [HttpPost]
         public ActionResult Create(Kategoriler kategoriler)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             dbStokTakipEntities.Kategoriler.Add(kategoriler);
             dbStokTakipEntities.SaveChanges();
             return RedirectToAction("Index");
@@ -51,8 +55,7 @@ namespace StokTakip.Controllers
         [HttpPost]
         public ActionResult Update(Kategoriler category)
         {
-            var categoryToUpdate =
-                dbStokTakipEntities.Kategoriler.Find(category.KategoriId);
+            var categoryToUpdate = dbStokTakipEntities.Kategoriler.Find(category.KategoriId);
             categoryToUpdate.KategoriAd = category.KategoriAd;
             dbStokTakipEntities.SaveChanges();
 

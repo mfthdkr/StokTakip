@@ -1,0 +1,30 @@
+﻿@using StokTakip.Models.EntityFramework
+@model Musteriler
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Müşteri Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("Update", "Musteriler", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.MusteriId, "Müşteri Id :")
+        @Html.TextBoxFor(p => p.MusteriId, new { @class = "form-control" })
+
+        <br />
+
+        @Html.LabelFor(p => p.MusteriAd, "Müşteri Adı: ")
+        @Html.TextBoxFor(p => p.MusteriAd, new { @class = "form-control" })
+
+        <br />
+
+        @Html.LabelFor(p => p.MusteriSoyad, "Müşteri Soyadı: ")
+        @Html.TextBoxFor(p => p.MusteriSoyad, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
