@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using StokTakip.Models.EntityFramework;
 
 namespace StokTakip.Controllers
@@ -11,9 +12,9 @@ namespace StokTakip.Controllers
     {
         private DbStokTakipEntities dbStokTakipEntities = new DbStokTakipEntities();
         // GET: Urunler
-        public ActionResult Index()
-        {
-            var productList = dbStokTakipEntities.Urunler.ToList();
+        public ActionResult Index(int pageNumber  =1)
+        {   
+            var productList = dbStokTakipEntities.Urunler.ToList().ToPagedList(pageNumber,2);
             foreach (var product in productList)
             {
                 if (product.UrunKategori == null)

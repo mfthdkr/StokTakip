@@ -1,5 +1,7 @@
-﻿@using StokTakip.Models.EntityFramework
-@model List<Urunler>
+﻿@using PagedList
+@using PagedList.Mvc
+@using StokTakip.Models.EntityFramework
+@model PagedList.IPagedList<Urunler>
 
 @{
     ViewBag.Title = "Index";
@@ -19,23 +21,25 @@
 
     </tr>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.UrunId</td>
-                <td>@item.UrunAd</td>
-                <td>@item.Kategoriler.KategoriAd</td>
-                <td>@item.Marka</td>
-                <td>@item.Fiyat</td>
-                <td>@item.Stok</td>
-                <td>
-                    <a href="@Url.Action("Delete", "Urunler", new {productId=@item.UrunId})" class=" btn btn-danger">Sil</a>
-                    <a href="@Url.Action("Update", "Urunler", new {productId=@item.UrunId})" class=" btn btn-success">Güncelle</a>
-                </td>
-            </tr>
-        }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.UrunId</td>
+            <td>@item.UrunAd</td>
+            <td>@item.Kategoriler.KategoriAd</td>
+            <td>@item.Marka</td>
+            <td>@item.Fiyat</td>
+            <td>@item.Stok</td>
+            <td>
+                <a href="@Url.Action("Delete", "Urunler", new {productId=@item.UrunId})" class=" btn btn-danger">Sil</a>
+                <a href="@Url.Action("Update", "Urunler", new {productId=@item.UrunId})" class=" btn btn-success">Güncelle</a>
+            </td>
+        </tr>
+    }
     </tbody>
 </table>
+
+@Html.PagedListPager((IPagedList)Model,pageNumber=>Url.Action("Index",new {pageNumber}))
 <a href="/Urunler/Create" class="btn btn-primary">Yeni Ürün Ekle</a>
 
 
