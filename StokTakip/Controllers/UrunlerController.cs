@@ -67,5 +67,41 @@ namespace StokTakip.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Update(int productId)
+        {
+            var productToUpdate = dbStokTakipEntities.Urunler.Find(productId);
+
+            List<SelectListItem> kategoriler =
+                (from kategori in dbStokTakipEntities.Kategoriler.ToList()
+                    select new SelectListItem()
+                    {
+                        Text = kategori.KategoriAd,
+                        Value = kategori.KategoriId.ToString()
+                    }).ToList();
+
+            ViewBag.kategoriler = kategoriler;
+
+            return View(productToUpdate);
+        }
+
+        [HttpPost]
+        public ActionResult Update(Urunler urun)
+        {
+            var kategori = dbStokTakipEntities.Kategoriler.Where(p => p.KategoriId == urun.Kategoriler.KategoriId)
+                .FirstOrDefault();
+            urun.UrunKategori = kategori?.KategoriId;
+
+            var productToUpdate = dbStokTakipEntities.Urunler.Find(urun.UrunId);
+            productToUpdate.UrunAd = urun.UrunAd;
+            productToUpdate.UrunKategori = urun.UrunKategori;
+            productToUpdate.Fiyat =urun.Fiyat;
+            productToUpdate.Marka =urun.Marka;
+            productToUpdate.Stok = urun.Stok;
+
+            dbStokTakipEntities.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }

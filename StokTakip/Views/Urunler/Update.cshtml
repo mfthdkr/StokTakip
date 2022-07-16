@@ -1,0 +1,41 @@
+﻿@model StokTakip.Models.EntityFramework.Urunler
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Ürün Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("Update", "Urunler", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.UrunId, "Ürün Id :")
+        @Html.TextBoxFor(p => p.UrunId, new { @class = "form-control" })
+
+        <br />
+
+        @Html.LabelFor(p => p.UrunAd, "Ürün adı : ")
+        @Html.TextBoxFor(p => p.UrunAd, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(p => p.UrunKategori, "Kategori : ")
+        @Html.DropDownListFor(p=>p.Kategoriler.KategoriId,(List<SelectListItem>)ViewBag.kategoriler,new {@class="form-control"})
+        @*@Html.TextBoxFor(p => p.UrunKategori, new { @class = "form-control" })*@
+        <br />
+
+        @Html.LabelFor(p => p.Marka, "Marka : ")
+        @Html.TextBoxFor(p => p.Marka, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(p => p.Fiyat, "Fiyat : ")
+        @Html.TextBoxFor(p => p.Fiyat, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(p => p.Stok, "Stok : ")
+        @Html.TextBoxFor(p => p.Stok, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+

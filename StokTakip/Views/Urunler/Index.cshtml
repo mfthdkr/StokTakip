@@ -30,7 +30,7 @@
                 <td>@item.Stok</td>
                 <td>
                     <a href="@Url.Action("Delete", "Urunler", new {productId=@item.UrunId})" class=" btn btn-danger">Sil</a>
-                    <a href="/Urunler/Update/@item.UrunId" class=" btn btn-success">Güncelle</a>
+                    <a href="@Url.Action("Update", "Urunler", new {productId=@item.UrunId})" class=" btn btn-success">Güncelle</a>
                 </td>
             </tr>
         }
