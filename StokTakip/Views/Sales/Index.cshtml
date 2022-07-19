@@ -1,0 +1,41 @@
+﻿@model StokTakip.Models.EntityFramework.Satislar
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Satış Yap
+</button>
+<br/>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    Satış Ekranı
+                </h2>
+                <form method="post" action="/Sales/CreateSale">
+                    <div class="modal-body">
+                        <label>Ürün Id</label>
+                        @Html.TextBoxFor(p => p.Urun, new { @class = "form-control" })
+                        <br />
+                        <label>Müşteri Id</label>
+                        @Html.TextBoxFor(p => p.Musteri, new { @class = "form-control" })
+                        <br />
+                        <label>Fiyat</label>
+                        @Html.TextBoxFor(p => p.Fiyat, new { @class = "form-control" })
+                        <br />
+                        <label>Adet</label>
+                        @Html.TextBoxFor(p => p.Adet, new { @class = "form-control" })
+                        <br />
+                        <button type="submit" class="btn btn-info">Satış Yap</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

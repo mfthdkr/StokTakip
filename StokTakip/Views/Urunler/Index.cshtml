@@ -31,9 +31,14 @@
             <td>@item.Fiyat</td>
             <td>@item.Stok</td>
             <td>
-                <a href="@Url.Action("Delete", "Urunler", new {productId=@item.UrunId})" class=" btn btn-danger">Sil</a>
-                <a href="@Url.Action("Update", "Urunler", new {productId=@item.UrunId})" class=" btn btn-success">Güncelle</a>
+                @*doğrudan siler*@
+                @*<a href="@Url.Action("Delete", "Urunler", new {productId=@item.UrunId})" class=" btn btn-danger">Sil</a>*@
+
+                <a href="@Url.Action("Update", "Urunler", new {productId = @item.UrunId})" class=" btn btn-success">Güncelle</a>
             </td>
+            
+            @*silmeden önce uyarı*@
+            <td>@Html.ActionLink("Sil","Delete",new {productId= item.UrunId},new { @class="btn btn-danger",onclick="return confirm('Kalıcı olarak silmek istiyor musunuz?')"})</td>
         </tr>
     }
     </tbody>
