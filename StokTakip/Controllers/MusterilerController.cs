@@ -11,10 +11,14 @@ namespace StokTakip.Controllers
     {
         // GET: Musteriler
         private DbStokTakipEntities dbStokTakipEntities = new DbStokTakipEntities();
-        public ActionResult Index()
+        public ActionResult Index(string searchingKey)
         {
-            var customerList = dbStokTakipEntities.Musteriler.ToList();
-            return View(customerList);
+            var result = from entity in dbStokTakipEntities.Musteriler select entity;
+            if (!string.IsNullOrEmpty(searchingKey))
+            {
+                result = result.Where(p => p.MusteriAd.Contains(searchingKey));
+            }
+            return View(result.ToList());
         }
 
         public ActionResult Create()
